@@ -2,7 +2,7 @@
 
 <ol>
   <li ng-repeat="post in blogs">
-    <a ng-click="$parent.markdownraw = post">{{post.author}}</a>
+    <a ng-click="$parent.markdownraw = post" ng-class="{current: $parent.markdownraw == post}" class="blogLink">{{post.author}}</a>
   </li>
 
 <label for="author">Author: </label>
@@ -12,7 +12,7 @@
 <div class="content-buttons">
   <a class="btn btn-lg btn-success" ng-click="save(markdownraw)">Save</a>
   <a class="btn btn-lg btn-warning" ng-click="clear()">Clear</a>
-  <a class="btn btn-lg btn-danger" ng-if="markdownraw._id" ng-click="del(markdownraw)">Delete</a>
-  <a class="btn btn-lg btn-success" ng-click="markdownraw = {}; blogs.push(markdownraw)">New</a>
+  <a class="btn btn-lg btn-danger" ng-click="del(markdownraw)">Delete</a>
+  <a class="btn btn-lg btn-success" ng-click="add()">New</a>
 </div>
 <markdown-render raw="markdownraw.content"></markdown-render>

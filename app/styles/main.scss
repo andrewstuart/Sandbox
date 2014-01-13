@@ -9,6 +9,10 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   height: 20em;
 }
 
+.blogLink.current {
+  color: orange;
+}
+
 .content-buttons {
 
   a {
