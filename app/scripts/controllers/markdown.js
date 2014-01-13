@@ -3,7 +3,7 @@
 angular.module('sandboxApp')
   .controller('MarkdownCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.markdownraw = {
+    var defaultContent = $scope.markdownraw = {
       content: '',
       author: 'Andrew'
     };
@@ -19,10 +19,27 @@ angular.module('sandboxApp')
       }
     };
 
-    $scope.save = function() {
-      if( window.confirm('Do you want to save your content?')) {
-        $http.post('/api/blog', $scope.markdownraw).success(function(data) {
-          $scope.markdownraw = data;
+    $scope.save = function(post) {
+      function handleResponse (data) {
+        $scope.blogs[$scope.blogs.indexOf(post)] = data;
+        $scope.markdownraw = data;
+      }
+
+      if(!post._id || window.confirm('Do you want to overwrite your content?')) {
+        if(!post._id) {
+          $http.post('/api/blog', post).success(handleResponse);
+        } else {
+          $http.put('/api/blog/' + post._id, post).success(handleResponse);
+        }
+      }
+    };
+
+    $scope.del = function(post) {
+      if( window.confirm('Do you want to delete this post?')) {
+        $http.delete('/api/blog/' + $scope.markdownraw._id).success(function() {
+          var index = $scope.blogs.indexOf(post);
+          $scope.blogs.splice(index, 1);
+          $scope.markdownraw = defaultContent;
         });
       }
     };
