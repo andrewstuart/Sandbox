@@ -5,8 +5,13 @@ angular.module('sandboxApp')
 
   var defaultContent = $scope.markdownraw = {
     content: '',
-    author: $scope.currentUser.name || 'Andrew' //Default to Andrew.
+    author: 'Andrew' //Default to Andrew.
   };
+  try {
+    defaultContent.author = $scope.currentUser.name;
+  } catch(e) {
+    console.log('User not yet logged in.');
+  }
 
   $http.get('/api/blog').success(function(data) {
     $scope.blogs = data;
