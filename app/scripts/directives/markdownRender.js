@@ -16,6 +16,6 @@ angular.module('sandboxApp')
         $scope.$watch($attrs.raw, function(newValue) {
           $element.children('pre').html(markdown.toHTML(newValue));
         });
-      }]
+      }],
     };
   });

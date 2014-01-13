@@ -1,0 +1,12 @@
+<div ng-include="'partials/navbar.html'"></div>
+<div id="chat">
+  <div ng-repeat="message in messages" class="chat-message">
+    <span class="user">{{message.user}}</span>
+    <span class="date">{{message.receiveDate}}</span>
+    <markdown-render raw="message.message"></markdown-render>
+  </div>
+
+  <textarea class="chat-input" ng-model="chatMessage.message"></textarea>
+  <markdown-render raw="chatMessage.message" class="chat-preview"></markdown-render>
+  <a class="ui-btn ui-btn-large ui-btn-success" ng-click="sendMessage(chatMessage)">Send</a>
+</div>

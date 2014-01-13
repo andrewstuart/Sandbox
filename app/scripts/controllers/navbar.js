@@ -11,6 +11,9 @@ angular.module('sandboxApp')
     }, {
       'title': 'Markdown',
       'link': '/markdown'
+    }, {
+      'title': 'Chat',
+      'link': '/chat'
     }];
 
     $scope.logout = function() {

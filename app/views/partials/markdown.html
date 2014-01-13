@@ -2,11 +2,18 @@
 
 <ol>
   <li ng-repeat="post in blogs">
-    <a ng-click="$parent.markdownraw = post" ng-class="{current: $parent.markdownraw == post}" class="blogLink">{{post.author}}</a>
+    <a ng-click="$parent.markdownraw = post" ng-class="{current: $parent.markdownraw == post}" class="blogLink">{{post.title}}</a>
   </li>
+</ol>
 
-<label for="author">Author: </label>
-<input id="author" ng-model="markdownraw.author" />
+<div class="form-group" id="title">
+  <label for="author">Title: </label>
+  <input class="form-control" ng-model="markdownraw.title" />
+</div>
+<div class="form-group" id="author">
+  <label for="author">Author: </label>
+  <input class="form-control" ng-model="markdownraw.author" />
+</div>
 
 <textarea class="markdown-raw" ng-model="markdownraw.content" />
 <div class="content-buttons">

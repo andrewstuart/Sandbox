@@ -29,6 +29,10 @@ angular.module('sandboxApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/chat', {
+        templateUrl: 'partials/chat',
+        controller: 'ChatCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

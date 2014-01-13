@@ -1,0 +1,63 @@
+@import "../bower_components/sass-bootstrap/lib/bootstrap";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+
+#chat {
+
+  .chat-message {
+    margin-bottom: .2em;
+
+    .user {
+      font-weight: bold;
+    }
+    .date {
+      color: #BBB;
+    }
+  }
+
+  .chat-input {
+    width: 50em;
+  }
+
+  .chat-preview > pre {
+    margin-top: 1em;
+    border: 1px solid gray;
+  }
+
+  markdown-render > pre {
+    @include background(linear-gradient(0, white, #EEE));
+    @include border-radius(.5em);
+  }
+}
+
+.markdown-raw {
+  width: 50em;
+  height: 20em;
+}
+
+.blogLink.current {
+  color: orange;
+}
+
+.content-buttons {
+
+  a {
+    float: right;
+    margin-left: .5em;
+  }
+
+  @include clearfix();
+  margin: 1em;
+}
+
+markdown-render > pre {
+  code {
+    background-color: #333333;
+    color: white;
+    padding: .3em;
+    @include border-radius(.5em);
+  }
+
+  background-color: transparent;
+  border: none;
+}
