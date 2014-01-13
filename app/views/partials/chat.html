@@ -6,7 +6,7 @@
     <markdown-render raw="message.message"></markdown-render>
   </div>
 
-  <textarea class="chat-input" ng-model="chatMessage.message"></textarea>
+  <textarea autofocus="autofocus" class="chat-input" ng-model="chatMessage.message"></textarea>
   <markdown-render raw="chatMessage.message" class="chat-preview"></markdown-render>
   <a class="ui-btn ui-btn-large ui-btn-success" ng-click="sendMessage(chatMessage)">Send</a>
 </div>
