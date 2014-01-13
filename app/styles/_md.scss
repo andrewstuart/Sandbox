@@ -28,6 +28,10 @@
     @include background(linear-gradient(0, white, #EEE));
     @include border-radius(.5em);
   }
+
+  .btn {
+    float: right;
+  }
 }
 
 .markdown-raw {
