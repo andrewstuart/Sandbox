@@ -1,0 +1,18 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<ol>
+  <li ng-repeat="post in blogs">
+    <a ng-click="$parent.markdownraw = post">{{post.author}}</a>
+  </li>
+
+<label for="author">Author: </label>
+<input id="author" ng-model="markdownraw.author" />
+
+<textarea class="markdown-raw" ng-model="markdownraw.content" />
+<div class="content-buttons">
+  <a class="btn btn-lg btn-success" ng-click="save()">Save</a>
+  <a class="btn btn-lg btn-warning" ng-click="clear()">Clear</a>
+  <a class="btn btn-lg btn-danger" ng-if="markdownraw._id" ng-click="delete()">Delete</a>
+  <a class="btn btn-lg btn-success" ng-click="markdownraw = {}; blogs.push(markdownraw)">New</a>
+</div>
+<markdown-render raw="markdownraw.content"></markdown-render>
